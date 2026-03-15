@@ -1,1 +1,13 @@
 https://stackoverflow.com/questions/32614453/use-the-command-line-to-make-new-objects
+
+// c = new Course();
+        // c.setName("Lee Vally Golf Club");
+        // c.setPars(new Integer[] { 3, 4, 5, 6, 7, 8, 4, 2, 2, 5, 5, 3, 2, 3, 3, 5, 5,
+        // 4 });
+        // c.setLocation("Cork");
+        // c.setTee("Red");
+        // c.setHoles(18);
+        // c.setRecord(67);
+        // c.setIndex(47.5);
+        // courseList.add(c);
+        // System.out.println(courseList);

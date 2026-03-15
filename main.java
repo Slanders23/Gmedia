@@ -1,5 +1,6 @@
 package oProject;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -11,37 +12,56 @@ class main {
         System.out.println(
                 "___________________________________\n \n             GMEDIA\n___________________________________\n");
         List<Course> courseList = new ArrayList<>();
-        Course c = new Course();
-        c.setName("Muskerry Golf Club");
-        c.setPars(new Integer[] { 4, 4, 5, 4, 4, 3, 5, 3, 4, 4, 4, 3, 4, 5, 3, 4, 4, 4 });
-        c.setLocation("Cork");
-        c.setTee("White");
-        c.setHoles(18);
-        c.setRecord(67);
-        c.setIndex(47.5);
+        boolean active = true;
+        Integer choice;
+        Scanner myObj = new Scanner(System.in); // initialize scanner
+        while (active) {
+            System.out.println("Enter 1 to add new user: ");
+            System.out.print("Enter 2 to add new Course: ");
+            choice = myObj.nextInt();
+            myObj.nextLine();
+            if (choice == 2) {
+                Course c = new Course(); // Initialize Course class
 
-        courseList.add(c);
-        c = new Course();
-        c.setName("Lee Vally Golf Club");
-        c.setPars(new Integer[] { 3, 4, 5, 6, 7, 8, 4, 2, 2, 5, 5, 3, 2, 3, 3, 5, 5, 4 });
-        c.setLocation("Cork");
-        c.setTee("Red");
-        c.setRecord(67);
-        c.setIndex(47.5);
-        courseList.add(c);
-        // System.out.println(courseList);
-        for (int i = 0; i < courseList.size(); i++) {
-            System.out.println(courseList.get(i).name);
-            System.out.println(Arrays.toString(courseList.get(i).pars));
-            System.out.println("Par: " + courseList.get(i).par);
-            System.out.println("Holes: " + courseList.get(i).holes);
-            System.out.println("Location: " + courseList.get(i).location);
-            System.out.println("Tees: " + courseList.get(i).tee);
-            System.out.println("Course Record: " + courseList.get(i).record);
-            System.out.println("Course Index: " + courseList.get(i).index);
-            System.out.println("\nPress " + (i + 1) + " to Start Round");
+                List<Integer> tempPar = new ArrayList<>(); // initialize temp list
+
+                System.out.print("\n Enter Golf Course Name: ");
+                c.setName(myObj.nextLine());
+
+                System.out.print("\n Enter how many Holes: ");
+                c.setHoles(myObj.nextInt());
+
+                for (int i = 1; i <= c.holes; i++) {
+                    System.out.print("\n Enter par for Hole " + i + ": ");
+                    tempPar.add(myObj.nextInt());
+                }
+                c.setPars(tempPar);
+                myObj.nextLine();
+                System.out.print("\n Enter Golf Course Location: ");
+                c.setLocation(myObj.nextLine());
+
+                System.out.print("\n Enter Course Record: ");
+                c.setRecord(myObj.nextInt());
+                System.out.print("\n Enter Course Index: ");
+                c.setIndex(myObj.nextDouble());
+
+                courseList.add(c);
+            }
             System.out.println("\n--------------------------------------------------\n");
+            for (int i = 0; i < courseList.size(); i++) {
 
+                System.out.println(courseList.get(i).name);
+                System.out.println(courseList.get(i).pars.toString());
+                System.out.println("Par: " + courseList.get(i).par);
+                System.out.println("Holes: " + courseList.get(i).holes);
+                System.out.println("Location: " + courseList.get(i).location);
+                // System.out.println("Tees: " + courseList.get(i).tee);
+                System.out.println("Course Record: " + courseList.get(i).record);
+                System.out.println("Course Index: " + courseList.get(i).index);
+                System.out.println("\nPress " + (i + 1) + " to Start Round");
+                System.out.println("\n--------------------------------------------------\n");
+
+            }
         }
     }
 }

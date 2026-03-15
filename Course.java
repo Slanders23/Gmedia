@@ -1,9 +1,11 @@
 package oProject;
 
+import java.util.List;
+
 public class Course {
     public String name;
     public Integer par = 0;
-    public Integer[] pars;
+    public List<Integer> pars;
     public Integer holes;
     public String location;
     public String tee;
@@ -18,10 +20,10 @@ public class Course {
         holes = setHoles;
     }
 
-    public void setPars(Integer[] newPars) {
+    public void setPars(List<Integer> newPars) {
         pars = newPars;
-        for (int i = 0; i < 18; i++) {
-            par += pars[i];
+        for (int i = 0; i < this.holes; i++) {
+            par += pars.get(i);
         }
 
     }
