@@ -12,6 +12,7 @@ class main {
         System.out.println(
                 "___________________________________\n \n             GMEDIA\n___________________________________\n");
         List<Course> courseList = new ArrayList<>();
+        List<user> userList = new ArrayList<>();
         boolean active = true;
         String menu;
         Integer choice;
@@ -33,7 +34,9 @@ class main {
                 myObj.nextLine();
 
                 if (choice == 1) {
-
+                    user u = new user();
+                    u.createUser();
+                    userList.add(u);
                 }
                 // ---------------------------------------------------------
                 // Creating a new Golf Course

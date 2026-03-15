@@ -35,3 +35,4 @@ https://stackoverflow.com/questions/10924561/java-scanner-string-input-if-statem
                     // c.setRecord(myObj.nextInt());
                     // System.out.print("\n Enter Course Index: ");
                     // c.setIndex(myObj.nextDouble());
+                    
