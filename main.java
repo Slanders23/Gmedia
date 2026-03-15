@@ -40,29 +40,7 @@ class main {
                 // ---------------------------------------------------------
                 if (choice == 2) {
                     Course c = new Course(); // Initialize Course class
-
-                    List<Integer> tempPar = new ArrayList<>(); // initialize temp list
-
-                    System.out.print("\n Enter Golf Course Name: ");
-                    c.setName(myObj.nextLine());
-
-                    System.out.print("\n Enter how many Holes: ");
-                    c.setHoles(myObj.nextInt());
-
-                    for (int i = 1; i <= c.holes; i++) {
-                        System.out.print("\n Enter par for Hole " + i + ": ");
-                        tempPar.add(myObj.nextInt());
-                    }
-                    c.setPars(tempPar);
-                    myObj.nextLine();
-                    System.out.print("\n Enter Golf Course Location: ");
-                    c.setLocation(myObj.nextLine());
-
-                    System.out.print("\n Enter Course Record: ");
-                    c.setRecord(myObj.nextInt());
-                    System.out.print("\n Enter Course Index: ");
-                    c.setIndex(myObj.nextDouble());
-
+                    c.setCourse();
                     courseList.add(c);
                 }
             } else if (menu.equals("z")) {

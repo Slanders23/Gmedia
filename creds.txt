@@ -11,3 +11,27 @@ https://stackoverflow.com/questions/10924561/java-scanner-string-input-if-statem
         // c.setIndex(47.5);
         // courseList.add(c);
         // System.out.println(courseList);
+
+
+
+        hard coding coursesList    // List<Integer> tempPar = new ArrayList<>(); // initialize temp list
+
+                    // System.out.print("\n Enter Golf Course Name: ");
+                    // c.setName(myObj.nextLine());
+
+                    // System.out.print("\n Enter how many Holes: ");
+                    // c.setHoles(myObj.nextInt());
+
+                    // for (int i = 1; i <= c.holes; i++) {
+                    // System.out.print("\n Enter par for Hole " + i + ": ");
+                    // tempPar.add(myObj.nextInt());
+                    // }
+                    // c.setPars(tempPar);
+                    // myObj.nextLine();
+                    // System.out.print("\n Enter Golf Course Location: ");
+                    // c.setLocation(myObj.nextLine());
+
+                    // System.out.print("\n Enter Course Record: ");
+                    // c.setRecord(myObj.nextInt());
+                    // System.out.print("\n Enter Course Index: ");
+                    // c.setIndex(myObj.nextDouble());
