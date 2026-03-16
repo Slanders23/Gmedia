@@ -13,6 +13,7 @@ class main {
                 "___________________________________\n \n             GMEDIA\n___________________________________\n");
         List<Course> courseList = new ArrayList<>();
         List<user> userList = new ArrayList<>();
+        List<post> postList = new ArrayList<>();
         boolean active = true;
         String menu;
         user loggedIn = null;
@@ -44,6 +45,7 @@ class main {
                     user u = new user();
                     u.createUser();
                     userList.add(u);
+                    System.out.println(u);
                 }
                 // ---------------------------------------------------------
                 // Creating a new Golf Course
@@ -56,7 +58,8 @@ class main {
 
             } else if (menu.equals("c")) {
                 if (loggedIn != null) {
-                    System.out.println("logged in as " + loggedIn.name);
+                    System.out.println("logged in as " + loggedIn.name + "Following" + loggedIn.followList.size());
+
                 } else {
                     System.out.println("Enter 1 to Create Account: ");
                     System.out.println("Enter 2 to LogIn: ");
@@ -68,6 +71,7 @@ class main {
                     if (choice == 1) {
                         user u = new user();
                         u.createUser();
+
                         userList.add(u);
                     }
                     // ---------------------------------------------------------
@@ -95,6 +99,7 @@ class main {
                 // Courses
             } else if (menu.equals("z")) {
                 System.out.println("\n--------------------------------------------------\n");
+                Integer courseSelectTemp = 0;
                 for (int i = 0; i < courseList.size(); i++) {
 
                     System.out.println(courseList.get(i).name);
@@ -107,7 +112,44 @@ class main {
                     System.out.println("Course Index: " + courseList.get(i).index);
                     System.out.println("\nPress " + (i + 1) + " to Start Round");
                     System.out.println("\n--------------------------------------------------\n");
+                    courseSelectTemp = myObj.nextInt();
 
+                    // Creating A post
+
+                    if (courseSelectTemp > 0) {
+                        post p = new post();
+                        System.out.println("You Have selected " + courseList.get(courseSelectTemp - 1).name);
+
+                        p.setCourseObj(courseList.get(courseSelectTemp - 1));
+                        p.setUserObj(loggedIn);
+                        p.setPost();
+                        postList.add(p);
+                        // System.out.println(p.Course);
+                    }
+
+                }
+            } else if (menu.equals("x")) {
+                for (Integer i = 0; i < postList.size(); i++) {
+                    System.out.println(postList.get(i).userObj.name + "                           16/03 ");
+                    System.out.println(postList.get(i).CourseObj.name + "                            ");
+                    System.out.println(postList.get(i).CourseObj.pars.toString() + "  par|"
+                            + postList.get(i).CourseObj.par + "|  ");
+                    System.out.println(
+                            postList.get(i).scoreList.toString() + " score|" + postList.get(i).totalScore + " |  ");
+                    System.out.println("-------------------------------------------------");
+                    System.out.println("|                        /|                     |");
+                    System.out.println("|                       / |                     |");
+                    System.out.println("|                      /  |                     |");
+                    System.out.println("|                     /   |                     |");
+                    System.out.println("|                    /____|                     |");
+                    System.out.println("|                         |                     |");
+                    System.out.println("|                         |                     |");
+                    System.out.println("|                         |                     |");
+                    System.out.println("|                    O    |                     |");
+                    System.out.println("|                         |     O               |");
+                    System.out.println("-------------------------------------------------");
+                    System.out.println(postList.get(i).description);
+                    System.out.println("likes: " + postList.get(i).likes + "                               comments 3");
                 }
             }
         }
