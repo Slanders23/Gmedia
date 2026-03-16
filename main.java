@@ -15,6 +15,7 @@ class main {
         List<user> userList = new ArrayList<>();
         boolean active = true;
         String menu;
+        user loggedIn = null;
         Integer choice;
         Scanner myObj = new Scanner(System.in); // initialize scanner
         while (active) {
@@ -26,13 +27,19 @@ class main {
                     "--------------------------------------------------------------------------------------------------------------------- ");
             menu = myObj.next();
 
+            // ==========================================================================
+            // Settings Menu
+            // ==========================================================================
+
             if (menu.equals("v")) {
 
                 System.out.println("Enter 1 to add new user: ");
                 System.out.println("Enter 2 to add new Course: ");
                 choice = myObj.nextInt();
                 myObj.nextLine();
-
+                // ======================================
+                // Creating new user
+                // ====================================
                 if (choice == 1) {
                     user u = new user();
                     u.createUser();
@@ -46,6 +53,46 @@ class main {
                     c.setCourse();
                     courseList.add(c);
                 }
+
+            } else if (menu.equals("c")) {
+                if (loggedIn != null) {
+                    System.out.println("logged in as " + loggedIn.name);
+                } else {
+                    System.out.println("Enter 1 to Create Account: ");
+                    System.out.println("Enter 2 to LogIn: ");
+                    choice = myObj.nextInt();
+                    myObj.nextLine();
+                    // ====
+                    // create user
+                    // =====
+                    if (choice == 1) {
+                        user u = new user();
+                        u.createUser();
+                        userList.add(u);
+                    }
+                    // ---------------------------------------------------------
+                    // login
+                    // ---------------------------------------------------------
+                    if (choice == 2) {
+
+                        System.out.println("-----------------------------");
+                        System.out.println("            Login");
+                        System.out.println("-----------------------------");
+                        System.out.println("Enter User Name: ");
+                        String tempUserName = myObj.nextLine();
+                        System.out.println("Enter Password: ");
+                        String tempUserPassword = myObj.nextLine();
+                        for (int us = 0; us < userList.size(); us++) {
+                            if (userList.get(us).userName.equals(tempUserName)) {
+                                if (userList.get(us).password.equals(tempUserPassword)) {
+                                    loggedIn = userList.get(us);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // Courses
             } else if (menu.equals("z")) {
                 System.out.println("\n--------------------------------------------------\n");
                 for (int i = 0; i < courseList.size(); i++) {
