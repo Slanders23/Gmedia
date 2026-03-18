@@ -68,6 +68,7 @@ class main {
 
                 System.out.println("Enter 1 to add new user: ");
                 System.out.println("Enter 2 to add new Course: ");
+
                 choice = myObj.nextInt();
                 myObj.nextLine();
                 // ======================================
@@ -91,7 +92,17 @@ class main {
             } else if (menu.equals("c")) {
                 if (loggedIn != null) {
                     System.out.println("logged in as " + loggedIn.name + "Following" + loggedIn.followList.size());
+                    System.out.println("Enter 1 to veiw Follow list");
+                    System.out.println("Enter 2 to logOut");
+                    myObj.nextLine();
+                    postTemp = myObj.nextLine();
 
+                    if (postTemp.equals("1")) {
+                        System.out.println("Following" + loggedIn.followList.toString());
+                    } else if (postTemp.equals("2")) {
+                        loggedIn = null;
+                        System.out.println("Succesfully logged out");
+                    }
                 } else {
                     System.out.println("Enter 1 to Create Account: ");
                     System.out.println("Enter 2 to LogIn: ");
@@ -196,6 +207,13 @@ class main {
                     postTemp = myObj.nextLine();
                     if (postTemp.equals("2")) {
                         postList.get(i).setLike();
+                    } else if (postTemp.equals("1")) {
+                        if (loggedIn.followList.contains(postList.get(i).userObj.name)) {
+                            System.out.println("Cannt follow");
+                        } else {
+                            loggedIn.followList.add(postList.get(i).userObj.name);
+                            System.out.println("now following" + loggedIn.followList.toString());
+                        }
                     }
                 }
             }
