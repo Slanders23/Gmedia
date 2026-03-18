@@ -36,9 +36,11 @@ public class Course {
 
         System.out.print("\n Enter Course Record: ");
         record = myObj.nextInt();
+        myObj.nextLine();
 
         System.out.print("\n Enter Course Index: ");
         index = myObj.nextDouble();
+
     }
 
     public void setName(String newName) {

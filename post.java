@@ -25,6 +25,10 @@ public class post {
         userObj = newUserObj;
     }
 
+    public void setLike() {
+        likes += 1;
+    }
+
     public void setPost() {
         for (int i = 1; i <= CourseObj.holes; i++) {
             System.out.print("\n Enter par for Hole " + i + "[" + CourseObj.pars.get(i - 1) + "]: ");
