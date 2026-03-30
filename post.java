@@ -44,6 +44,10 @@ public class post {
         // }
     }
 
+    public void setComment(String Comment) {
+        comments.add(Comment);
+    }
+
     public void hardUser(user newUserObj) {
         userObj = newUserObj;
 

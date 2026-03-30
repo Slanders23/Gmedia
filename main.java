@@ -16,8 +16,8 @@ class main {
         List<user> userList = new ArrayList<>();
         List<post> postList = new ArrayList<>();
         // ObjectMapper objectMapper = new ObjectMapper();
-
         boolean active = true;
+        boolean pos = true;
         String menu;
         user loggedIn = null;
         Integer choice;
@@ -236,21 +236,49 @@ class main {
                     System.out.println(
                             "likes: " + postList.get(i).likes + "                               comments "
                                     + postList.get(i).comments.size());
+                    pos = true;
+                    while (pos == true) {
 
-                    System.out.println(
-                            "Press 1 to follow, Press 2 to Like ,Press 3 to view comments, Press 4 to Comment, Press s for next ");
+                        System.out.println(
+                                "Press 1 to follow, Press 2 to Like ,Press 3 to view comments, Press 4 to Comment, Press s for next ");
 
-                    postTemp = myObj.next();
-                    if (postTemp.equals("2")) {
-                        postList.get(i).setLike();
-                    } else if (postTemp.equals("1")) {
-                        if (loggedIn.followList.contains(postList.get(i).userObj.name)) {
-                            System.out.println("Cannt follow");
-                        } else {
-                            loggedIn.followList.add(postList.get(i).userObj.name);
-                            System.out.println("now following" + loggedIn.followList.toString());
+                        postTemp = myObj.next();
+                        if (postTemp.equals("2")) {
+                            if (loggedIn != null) {
+                                postList.get(i).setLike();
+                            } else {
+                                System.out.println("Must Be logged in");
+                            }
+                        } else if (postTemp.equals("1")) {
+                            if (loggedIn != null) {
+                                if (loggedIn.followList.contains(postList.get(i).userObj.name)) {
+                                    System.out.println("Cannt follow");
+                                } else {
+                                    loggedIn.followList.add(postList.get(i).userObj.name);
+                                    System.out.println("now following" + loggedIn.followList.toString());
+                                }
+                            } else {
+                                System.out.println("Must be logged in");
+                            }
+                        } else if (postTemp.equals("3")) {
+                            for (int o = 0; o < postList.get(o).comments.size(); o++) {
+                                System.out.println(postList.get(o).comments.get(o));
+                            }
+
+                        } else if (postTemp.equals("4")) {
+                            if (loggedIn != null) {
+                                myObj.nextLine();
+                                System.out.print("\nEnter Comment: ");
+                                String tempCom = myObj.nextLine();
+                                postList.get(i).setComment(tempCom);
+                            } else {
+                                System.out.println("Must be logged in");
+                            }
                         }
-                    } else if (postTemp.equals("s")) {
+
+                        else if (postTemp.equals("s")) {
+                            pos = false;
+                        }
                     }
                 }
             }
