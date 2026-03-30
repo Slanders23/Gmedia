@@ -39,4 +39,15 @@ public class user {
         myObj.nextLine();
     }
 
+    public void hardUser(String newUsername) {
+        userName = newUsername;
+    }
+
+    public void hardName(String newName) {
+        name = newName;
+    }
+
+    public void hardPassword(String newPassword) {
+        password = newPassword;
+    }
 }

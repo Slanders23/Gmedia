@@ -49,13 +49,49 @@ class main {
         c.setIndex(137);
         courseList.add(c);
         System.out.println(courseList);
+        // set user
+        user u = new user();
+        u.hardUser("jeff");
+        u.hardName("Jeffery");
+        u.hardPassword("1234");
+        userList.add(u);
+        u = new user();
+        u.hardUser("bar");
+        u.hardName("Barry");
+        u.hardPassword("1234");
+        userList.add(u);
+        u = new user();
+        u.hardUser("Wiper");
+        u.hardName("Owen");
+        u.hardPassword("1234");
+        userList.add(u);
+        // create posts
+
+        post p = new post();
+        p.hardUser(userList.get(0));
+        p.hardCourse(courseList.get(1));
+        p.hardscore(List.of(4, 5, 4, 3, 4, 4, 5, 3, 5, 4, 5, 6, 3, 4, 5, 6, 6, 4));
+        p.hardDescription("Great day out today did not play well tho");
+        postList.add(p);
+        p = new post();
+        p.hardUser(userList.get(1));
+        p.hardCourse(courseList.get(2));
+        p.hardscore(List.of(4, 5, 4, 3, 4, 4, 5, 3, 5, 4, 5, 6, 3, 4, 5, 6, 6, 4));
+        p.hardDescription("best round i have ever");
+        postList.add(p);
+        p = new post();
+        p.hardUser(userList.get(0));
+        p.hardCourse(courseList.get(0));
+        p.hardscore(List.of(4, 5, 4, 3, 4, 4, 5, 3, 5, 4, 5, 6, 3, 4, 5, 6, 6, 4));
+        p.hardDescription("Great day out today did not play well tho");
+        postList.add(p);
 
         Scanner myObj = new Scanner(System.in); // initialize scanner
         while (active) {
             System.out.println(
                     "--------------------------------------------------------------------------------------------------------------------- ");
             System.out.println(
-                    " |Enter 'z' for courses| |Enter 'x' for FYP| |Enter 'y' for Friends| Enter 'c' for Profile| |Enter 'v' for Settings|  ");
+                    " |Enter 'z' for courses| |Enter 'x' for FYP| | Enter 'c' for Profile| |Enter 'v' for Settings|  ");
             System.out.println(
                     "--------------------------------------------------------------------------------------------------------------------- ");
             menu = myObj.next();
@@ -75,7 +111,7 @@ class main {
                 // Creating new user
                 // ====================================
                 if (choice == 1) {
-                    user u = new user();
+                    u = new user();
                     u.createUser();
                     userList.add(u);
                     System.out.println(u);
@@ -112,7 +148,7 @@ class main {
                     // create user
                     // =====
                     if (choice == 1) {
-                        user u = new user();
+                        u = new user();
                         u.createUser();
                         // objectMapper.writeValue(new File("users.json"), u);
                         userList.add(u);
@@ -163,7 +199,7 @@ class main {
 
                 if (courseSelectTemp > 0) {
                     if (loggedIn != null) {
-                        post p = new post();
+                        p = new post();
                         System.out.println("You Have selected " + courseList.get(courseSelectTemp - 1).name);
 
                         p.setCourseObj(courseList.get(courseSelectTemp - 1));
@@ -202,9 +238,9 @@ class main {
                                     + postList.get(i).comments.size());
 
                     System.out.println(
-                            "Press 1 to follow, Press 2 to Like ,Press 3 to view comments, Press 4 to Comment ");
-                    myObj.nextLine();
-                    postTemp = myObj.nextLine();
+                            "Press 1 to follow, Press 2 to Like ,Press 3 to view comments, Press 4 to Comment, Press s for next ");
+
+                    postTemp = myObj.next();
                     if (postTemp.equals("2")) {
                         postList.get(i).setLike();
                     } else if (postTemp.equals("1")) {
@@ -214,6 +250,7 @@ class main {
                             loggedIn.followList.add(postList.get(i).userObj.name);
                             System.out.println("now following" + loggedIn.followList.toString());
                         }
+                    } else if (postTemp.equals("s")) {
                     }
                 }
             }

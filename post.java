@@ -44,4 +44,23 @@ public class post {
         // }
     }
 
+    public void hardUser(user newUserObj) {
+        userObj = newUserObj;
+
+    }
+
+    public void hardCourse(Course newCourseObj) {
+        CourseObj = newCourseObj;
+    }
+
+    public void hardscore(List<Integer> newScoreList) {
+        scoreList = newScoreList;
+        for (int i = 0; i < scoreList.size(); i++) {
+            totalScore += scoreList.get(i);
+        }
+    }
+
+    public void hardDescription(String newDesc) {
+        description = newDesc;
+    }
 }
