@@ -48,7 +48,7 @@ class main {
         c.setRecord(63);
         c.setIndex(137);
         courseList.add(c);
-        System.out.println(courseList);
+
         // set user
         user u = new user();
         u.hardUser("jeff");
@@ -76,14 +76,14 @@ class main {
         p = new post();
         p.hardUser(userList.get(1));
         p.hardCourse(courseList.get(2));
-        p.hardscore(List.of(4, 5, 4, 3, 4, 4, 5, 3, 5, 4, 5, 6, 3, 4, 5, 6, 6, 4));
+        p.hardscore(List.of(3, 4, 7, 3, 3, 4, 4, 4, 3, 5, 6, 4, 3, 2, 2, 3, 4, 4));
         p.hardDescription("best round i have ever");
         postList.add(p);
         p = new post();
         p.hardUser(userList.get(0));
         p.hardCourse(courseList.get(0));
-        p.hardscore(List.of(4, 5, 4, 3, 4, 4, 5, 3, 5, 4, 5, 6, 3, 4, 5, 6, 6, 4));
-        p.hardDescription("Great day out today did not play well tho");
+        p.hardscore(List.of(4, 7, 9, 7, 8, 6, 8, 7, 9, 5, 6, 8, 8, 8, 9, 7, 6, 5));
+        p.hardDescription("im quiting golf");
         postList.add(p);
 
         Scanner myObj = new Scanner(System.in); // initialize scanner
